@@ -46,7 +46,16 @@ body {
     background-color: #F9BD3E;
     color: #7c3f0a;
 }
+/* ERROR ALERT STYLES */
 
+.alert {
+    position: relative;
+    color: black;
+    padding: 10px 10px;
+    margin-bottom: 15px;
+    border: 1px solid  #EE401E;
+    border-radius: 0;
+}
 /* SEARCH OUTPUT BOX */
 
 
@@ -60,8 +69,8 @@ span {
     border: 3px solid #8EA424;
     padding: 10px;
     margin: 10px -15px;
-    background-color:#EBB122;
-    color:white;
+    background-color:rgba(235, 178, 34, 0.769);
+    color:  #7c3f0a;
 }
 
 /* 5-DAY FORECAST OUTPUT STYLES */
