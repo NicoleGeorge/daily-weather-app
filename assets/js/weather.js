@@ -35,7 +35,7 @@ const url = "http://api.openweathermap.org/data/2.5/weather?q=";
 
         } else {
             // adding bootstrap classes to the error message - alert & close X button
-            $('#errorMessage').html("<div class='alert alert-danger' id='inputError'>Please enter a city name to continue.</div>");
+            $('#errorMessage').html("<div class='alert alert-danger' id='inputError'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Please enter a city name to continue.</div>");
         }
     }
 
