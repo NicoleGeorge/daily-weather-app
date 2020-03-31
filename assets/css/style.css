@@ -11,9 +11,12 @@ body {
     color: #EE401E;
     font-size: 18px;
     text-align: center;
-    margin: 5vw;
 }
 
+.jumbotron {
+    background-color: #FEE1E2;
+    border-radius: 0;   
+}
 .heading {
     font-family: 'Shrikhand', cursive;
 }
@@ -28,6 +31,21 @@ body {
 
 /* SEARCH FIELD */
 
+.input-city {
+    border-radius: 0;
+}
+
+.btn {
+    border-radius: 0;
+    border: none;
+    background-color:#8EA424;
+}
+.btn:hover {
+    border-radius: 0;
+    border: none;
+    background-color: #F9BD3E;
+    color: #7c3f0a;
+}
 
 /* SEARCH OUTPUT BOX */
 

@@ -12,29 +12,37 @@
     <title>Weather App</title>
 </head>
 <body>
-    <div class="header">
-      <h1>Weather app: <br>it's the BOM!</h1>
+    <div class="jumbotron header">
+      <h1>Weather dashboard: <br>it's the BOM!</h1>
         <div class="data">
           <h2 class="heading city" id="location"></h2>
         </div>
     </div>
 
-
-    
-
      <!-- weather conditions output fields -->
      <div class="container">
-      <div class="row">
-          <div class="col-xl-4">
-              <h2>search bar</h2>
-              <form class="form-inline my-2 my-lg-0">
-                  <input class="form-control mr-sm-2 input-city" id="search-city" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success my-2 my-sm-0" id="search-button" type="submit">Search</button>
-                </form>
+      <div class="row" id="searchCity">
+          <div class="col-md-4">
+              <h2>Enter City Name</h2>
+
+              <!-- city search bar -->
+              <div class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2 input-city" type="text" id="inputCity" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-primary my-2 my-sm-0" id="searchButton" type="submit">Search</button>
+              </div>
+                <div id="errorMessage"></div>
+                <div class="card" style="width: 18rem;">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Stored City 3</li>
+                    <li class="list-group-item">Stored City 2</li>
+                    <li class="list-group-item">Stored City 1</li>
+                  </ul>
+                </div>
           </div>
-          <div class="data-output col-xl-8">
-     <!-- current weather output fields -->
-            <div class="box">
+
+          <div class="data-output col-md-8">
+      <!-- current weather output fields -->
+            <div class="box" id="displayWeather">
               <div class="data">
               <h4 class="data" id="temp"></h4>
               <h4 class="data" id="humidity"></h4>
@@ -118,10 +126,8 @@
   </div> 
     
 <!-- these are the JavaScript links -->
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-    <script src="./assets/js/weather.js"></script>    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+<script src="./assets/js/weather.js"></script>    
 </body>
 </html>
