@@ -13,17 +13,14 @@
 </head>
 <body>
     <div class="header">
-      <h1>Weather app: <br>it's the BOM!</h1>  
+      <h1>Weather app: <br>it's the BOM!</h1>
+        <div class="data">
+          <h2 class="heading city">Current weather for: <span id="location"></span></h2>
+        </div>
     </div>
 
-    <!-- this is the weather output fields -->
-    <div class="data">
-      <h2 class="box" id="location"></h2>
-      <h2 class="box" id="temp"></h2>
-      <h2 class="box" id="wind"></h2>
-      <h2 class="box" id="sky"></h2>   
-    </div>
 
+    
 
      <!-- weather conditions output fields -->
      <div class="container">
@@ -36,13 +33,18 @@
                 </form>
           </div>
           <div class="data-output col-xl-8">
-           <!-- output field -->
-           <div class="data">
-              <h2 class="data" id="temp"></h2>
-              <h2 class="data" id="humidity"></h2>
-              <h2 class="data" id="wind"></h2>
-              <h2 class="data" id="uv"></h2>
-           </div>
+     <!-- current weather output fields -->
+            <div class="box">
+              <div class="data">
+              <h4 class="data">Temperature: <span id="temp"></span> degrees</h4>
+              <h4 class="data">Humidity: <span id="humidity"></span>%</h4>
+              <h4 class="data">Wind: <span id="wind"></span> mps</h4>
+              <h4 class="data">Sky conditions: <span id="sky"></span></h4>
+              <h4 class="data">UV Index: <span id="uv"></span></h4>
+            </div>
+          </div>
+
+           
               
            <!-- 5 day forecast output-->
               <h2>5-Day forecast</h2>
