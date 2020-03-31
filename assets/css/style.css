@@ -1,3 +1,30 @@
+/* BASE STYLES */
+
 body {
     background-image: url(../images/b4.jpg);
+    font-family: 'Inconsolata', monospace;
 }
+
+/* HEADER STYLES */
+.header {
+    font-family: 'Shrikhand', cursive;
+    color: #EE401E;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.heading {
+    font-family: 'Shrikhand', cursive;
+}
+
+/* SEARCH FIELD */
+
+
+/* SEARCH OUTPUT FIELD */
+
+
+/* WEATHER OUTPUT STYLES */
+
+
+/* 5-DAY FORECAST OUTPUT STYLES */
