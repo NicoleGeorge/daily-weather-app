@@ -39,13 +39,17 @@ const url = "http://api.openweathermap.org/data/2.5/weather?q=";
         }
     }
 
+
+
+    // http://openweathermap.org/img/wn/
+
     function displayData(result) { 
         // returning data values + country name & country code output
-        return  '<h3>Current Weather for: ' + result.name + ', ' + result.sys.country+' </h3>' +
+        return  '<h3>Weather for: ' + result.name + ', ' + result.sys.country+' </h3>' +
+                "<h4>Current conditions: <img src='http://openweathermap.org/img/wn/" + result.weather[0].icon + ".png'>  "+ result.weather[0].description + "</h4>" +
                 "<h4>Temperature: " + result.main.temp + "&deg;C </h4>" +
                 "<h4>Humidity: " + result.main.humidity + "% </h4>" +
                 "<h4>Wind: " + result.wind.speed + " m/s </h4>" + 
-                "<h4>Sky Conditions: " + result.weather[0].description + "</h4>" +
                 "<h4>UV Index: " + "</h4>";
                 
     }
