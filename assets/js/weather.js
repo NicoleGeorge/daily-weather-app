@@ -1,24 +1,27 @@
 "use strict"
 $(document ).ready(function() {
 
+// URL REFERENCES;
 // API call format: api.openweathermap.org/data/2.5/weather?q={city name}&appid={your api key}
 // const uvURL = "https://http://api.openweathermap.org/data/2.5/uvi?appid={appid}&lat={lat}&lon={lon}";
 // API key: 4628463fa26bf6e9e88de6363b182cb3
+// URL to retrieve the icon images - http://openweathermap.org/img/wn/
 
 const url = "http://api.openweathermap.org/data/2.5/weather?q=";
 
-
-// adding click event for search field
+// START: adding a click event to search field
 
     $('#searchButton').click(function() {
         return getWeather();
     })
 
+    // fetching weather data function based on search city input
 
     function getWeather(){
         const city = $('#inputCity').val();
 
-        // validation - city must be entered 
+// START: creating an ajax call & outputting displayData function - see below 
+
         if (city != ''){
 
             $.ajax ({
@@ -32,16 +35,14 @@ const url = "http://api.openweathermap.org/data/2.5/weather?q=";
                 } 
             })
 
-
+        // validation - city must be entered 
         } else {
             // adding bootstrap classes to the error message - alert & close X button
             $('#errorMessage').html("<div class='alert alert-danger' id='inputError'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Please enter a city name to continue.</div>");
         }
     }
 
-
-
-    // http://openweathermap.org/img/wn/
+// START: creating displayData function to output pulled results from OpenWeather API
 
     function displayData(result) { 
         // returning data values + country name & country code output
@@ -53,5 +54,9 @@ const url = "http://api.openweathermap.org/data/2.5/weather?q=";
                 "<h4>UV Index: " + "</h4>";
                 
     }
+
+
+// START - local storage for searched cities
+
 
 });
