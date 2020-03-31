@@ -11,11 +11,11 @@ const url = "http://api.openweathermap.org/data/2.5/weather?q=";
 
 // START: adding a click event to search field
 
-    $('#searchButton').click(function() {
+    $('#searchButton').on("click", function() {
         return getWeather();
     })
 
-    // fetching weather data function based on search city input
+    // creating a 'fetch weather data function' based on search city input
 
     function getWeather(){
         const city = $('#inputCity').val();
@@ -57,6 +57,31 @@ const url = "http://api.openweathermap.org/data/2.5/weather?q=";
 
 
 // START - local storage for searched cities
+// variables
 
+const cityList = $('#searchList');
+    // adding an event listener 
+
+    $('#searchButton').on("click", storeCity); {
+        // console.log(alert('clicked')); working!
+    }
+
+    // function to store search for cities
+
+    function storeCity(e){
+        e.preventDefault();
+        // console.log('city entered!') - working!!
+
+    // getting search for city value
+        const searchedCity = $('#inputCity').val();
+        // console.log(searchedCity); - working *time for a dance break!!
+
+    // crating li elements to drop the search for cities into
+
+    const li = document.createElement('li');
+    li.textContent = searchedCity;
+    cityList.append(li);
+    // console.log(li); - working...woot woot
+    }
 
 });
