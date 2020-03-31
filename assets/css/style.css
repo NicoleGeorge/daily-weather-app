@@ -59,6 +59,19 @@ body {
 }
 /* SEARCH OUTPUT BOX - local storage values */
 
+a.remove-city {
+    float: right;
+    cursor: pointer;
+    color: crimson;
+    font-weight: 700;
+}
+
+a.remove-city:hover {
+    float: right;
+    cursor: pointer;
+    color: crimson;
+    font-weight: 700;
+}
 
 /* WEATHER OUTPUT STYLES */
 
