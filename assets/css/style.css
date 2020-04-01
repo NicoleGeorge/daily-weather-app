@@ -98,6 +98,22 @@ span {
     border: 2px solid #F9BD3E;
 }
 
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color:  #F9BD3E;
+    border-top-color: inherit;
+    border-right-color: inherit;
+    border-bottom-color: inherit;
+    border-left-color: inherit;
+}
+
+.table-bordered td, .table-bordered th {
+    border: 1px solid #F9BD3E;
+    background-color: #FEE1E2;
+    color:  #7c3f0a;
+}
+
 /* FOOTER STYLES */
 
 .footer {

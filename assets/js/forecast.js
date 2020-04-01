@@ -38,11 +38,13 @@ const url = "https://api.openweathermap.org/data/2.5/forecast/?q=";
                     for (var i = 0; i < result.list.length; i++) {
                         table += "<tr>";
 
-                        table += "<td>" + result.list[i].weather[0].icon + "</td>";
+
+                        table += "<td><img src='http://openweathermap.org/img/wn/" + result.list[i].weather[0].icon + ".png'>" + "</td>";
                         table += "<td>" + result.list[i].weather[0].description + "</td>";
-                        table += "<td>" + result.list[i].main.temp + "&deg;C</td>";
+                        table += "<td>" + result.list[i].main.temp_min + "&deg;C</td>";
+                        table += "<td>" + result.list[i].main.temp_max + "&deg;C</td>";
                         table += "<td>" + result.list[i].main.humidity + "%</td>";
-                        table += "<td>" + result.list[i].wind.speed + " m/hr</td>";
+                        table += "<td>" + result.list[i].wind.speed + " m/s</td>";
 
                         table += "</tr>";
                     }
