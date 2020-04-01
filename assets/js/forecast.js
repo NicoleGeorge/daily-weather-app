@@ -2,36 +2,51 @@
 $(document ).ready(function() {
 
 // URL REFERENCES;
-// API call format: api.openweathermap.org/data/2.5/forecast?q={city name}&appid={your api key}
+// API call format for 16 day/daily forecast data: api.openweathermap.org/data/2.5/forecast?q={city name}&appid={your api key}
 // const uvURL = "https://http://api.openweathermap.org/data/2.5/uvi?appid={appid}&lat={lat}&lon={lon}";
-// API key: 4628463fa26bf6e9e88de6363b182cb3
+// API key: 046573db14bf374a2834d822061a42fb
 // URL to retrieve the icon images - http://openweathermap.org/img/wn/
 
-const url = "http://api.openweathermap.org/data/2.5/weather?q=";
+const url = "https://api.openweathermap.org/data/2.5/forecast/?q=";
 
 // START: adding a click event to search field
 
-    $('#searchButton').on("click", function() {
-        return getWeather();
+    $('#searchForecast').on("click", function() {
+        return getForecast();
     })
+
 
     // creating a 'fetch weather data function' based on search city input
 
-    function getWeather(){
+    function getForecast(){
         const city = $('#inputCity').val();
 
 // START: creating an ajax call & outputting displayData function - see below 
 
-        if (city != ''){
+        // validation - only executes if the filed has a value
+        if (city != '') {
 
             $.ajax ({
-                url: url + city + "&units=metric" + "&appid=4547d4d0a5accd3b6ae29ab1abbcddfc",
+                url: url + city + "&units=metric" + "&cnt=5" + "&appid=046573db14bf374a2834d822061a42fb",
                 type: "GET",
                 dataType: "jsonp",
                 success: function(result) {
-                    let widget = displayData(result)
-                    $("#displayWeather").html(widget);
-                    $("#inputCity").val('');
+                    
+                    var table = '';
+
+                    // creating a loop to go through the .list of results
+                    for (var i = 0; i < result.list.length; i++) {
+                        table += "<tr>";
+
+                        table += "<td>" + result.list[i].weather[0].icon + "</td>"
+                        table += "<td>" + result.list[i].weather[0].main + "</td>"
+                        table += "<td>" + result.list[i].weather[0].description + "</td>";
+
+                        table += "</tr>";
+                    }
+
+                    $('#forecastWeather').html(table);
+                    $('#inputCity').val('');
                 } 
             })
 
@@ -44,25 +59,25 @@ const url = "http://api.openweathermap.org/data/2.5/weather?q=";
 
 // START: creating displayData function to output pulled results from OpenWeather API
 
-    function displayData(result) { 
-        // returning data values + country name & country code output
-        return  '<h3>Weather for: ' + result.name + ', ' + result.sys.country+' </h3>' +
-                "<h4>Current conditions: <img src='http://openweathermap.org/img/wn/" + result.weather[0].icon + ".png'>  "+ result.weather[0].description + "</h4>" +
-                "<h4>Temperature: " + result.main.temp + "&deg;C </h4>" +
-                "<h4>Humidity: " + result.main.humidity + "% </h4>" +
-                "<h4>Wind: " + result.wind.speed + " m/s </h4>" + 
-                "<h4>UV Index: " + "</h4>";
+    // function displayData(result) { 
+    //     // returning data values + country name & country code output
+    //     return  '<h3>Weather for: ' + result.name + ', ' + result.sys.country+' </h3>' +
+    //             "<h4>Current conditions: <img src='http://openweathermap.org/img/wn/" + result.weather[0].icon + ".png'>  "+ result.weather[0].description + "</h4>" +
+    //             "<h4>Temperature: " + result.main.temp + "&deg;C </h4>" +
+    //             "<h4>Humidity: " + result.main.humidity + "% </h4>" +
+    //             "<h4>Wind: " + result.wind.speed + " m/s </h4>" + 
+    //             "<h4>UV Index: " + "</h4>";
                 
-    }
+    // }
 
-// START - adding/removing cities to/from the list
+// START - adding/removing cities to/from the searched cities list
 // Stage 4: list variables
 
 const cityList = $('#searchList');
 
     // Stage 1: adding an event listener 
 
-    $('#searchButton').on("click", storeCity); {
+    $('#searchForecast').on("click", storeCity); {
         // console.log(alert('clicked')); working!
     
     // Stage 7: adding event listener to remove city from the list
@@ -150,5 +165,4 @@ const cityList = $('#searchList');
             
             console.log(cityList);
         }
-    
-});
+    });

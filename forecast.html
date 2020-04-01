@@ -14,7 +14,7 @@
 <body>
     <div class="jumbotron header">
       <h1>Current Weather dashboard: <br>it's the BOM diggity!</h1>
-      <h5><a href="index.html">Current forecast</a></h5>
+      <h5>Check out the <a href="index.html">Current forecast</a></h5>
         <div class="data">
           <h2 class="heading city" id="location"></h2>
         </div>
@@ -30,7 +30,7 @@
               <div class="form-inline my-2 my-lg-0">
                 <div class="tex-center" id="errorMessage"></div>
                   <input class="form-control mr-sm-2 input-city" type="text" id="inputCity" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-primary my-2 my-sm-0" id="searchButton" type="submit">Search</button>
+                  <button class="btn btn-primary my-2 my-sm-0" id="searchForecast" type="submit">Search</button>
               </div>
                 
                 <div class="card" style="width: 18rem;">
@@ -38,13 +38,31 @@
                     <div id="searchList"></div>
                 </div>
           </div>
+        </div>
                 <!-- 5 day forecast output-->
-                <h2>5-Day forecast</h2>
-                <div class="row">
-                  <div class="col-md-8"> </div>   
+                
+                <div class="container">
+                    <div class="row">
+                        <h2>5-Day forecast</h2>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Icon</th>
+                                <th>Description</th>
+                                <th>Temperature</th>
+                                <th>Humidity</th>
+                                <th>Wind</th>
+                                <th>UV Index</th>
+                            </tr>
+                        </thead>
+                        <tbody id="forecastWeather">
+                            
+                        </tbody>
+                    </table>
                 </div>
+            </div>
               </div>
-          </div>
+         
         </div>
       </div>
   </div> 

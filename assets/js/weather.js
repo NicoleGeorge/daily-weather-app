@@ -7,7 +7,7 @@ $(document ).ready(function() {
 // API key: 4628463fa26bf6e9e88de6363b182cb3
 // URL to retrieve the icon images - http://openweathermap.org/img/wn/
 
-const url = "http://api.openweathermap.org/data/2.5/weather?q=";
+const url = "https://api.openweathermap.org/data/2.5/weather?q=";
 
 // START: adding a click event to search field
 
@@ -25,7 +25,7 @@ const url = "http://api.openweathermap.org/data/2.5/weather?q=";
         if (city != ''){
 
             $.ajax ({
-                url: url + city + "&units=metric" + "&appid=4547d4d0a5accd3b6ae29ab1abbcddfc",
+                url: url + city + "&units=metric" + "&appid=046573db14bf374a2834d822061a42fb",
                 type: "GET",
                 dataType: "jsonp",
                 success: function(result) {

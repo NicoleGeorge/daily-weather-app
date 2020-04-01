@@ -89,7 +89,14 @@ span {
 
 /* 5-DAY FORECAST OUTPUT STYLES */
 
+.table-bordered {
+    border: 1px solid #F9BD3E;
+}
 
+.table thead th {
+    vertical-align: bottom;
+    border: 2px solid #F9BD3E;
+}
 
 /* FOOTER STYLES */
 
