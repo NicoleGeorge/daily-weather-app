@@ -25,7 +25,7 @@ const url = "https://api.openweathermap.org/data/2.5/weather?q=";
         if (city != ''){
 
             $.ajax ({
-                url: url + city + "&units=metric" + "&appid=046573db14bf374a2834d822061a42fb",
+                url: url + city + "&units=metric" + "&APPID=4628463fa26bf6e9e88de6363b182cb3",
                 type: "GET",
                 dataType: "jsonp",
                 success: function(result) {
@@ -50,10 +50,10 @@ const url = "https://api.openweathermap.org/data/2.5/weather?q=";
                 "<h4>Current conditions: <img src='http://openweathermap.org/img/wn/" + result.weather[0].icon + ".png'>  "+ result.weather[0].description + "</h4>" +
                 "<h4>Temperature: " + result.main.temp + "&deg;C </h4>" +
                 "<h4>Humidity: " + result.main.humidity + "% </h4>" +
-                "<h4>Wind: " + result.wind.speed + " m/s </h4>" + 
+                "<h4>Wind: " + result.wind.speed + " m/s </h4>" ;
                 // "<h4>UV Index: " + "</h4>";
-                
-    }
+               
+}
 
 // START - adding/removing cities to/from the list
 // Stage 4: list variables
