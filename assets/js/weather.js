@@ -51,7 +51,7 @@ const url = "https://api.openweathermap.org/data/2.5/weather?q=";
                 "<h4>Temperature: " + result.main.temp + "&deg;C </h4>" +
                 "<h4>Humidity: " + result.main.humidity + "% </h4>" +
                 "<h4>Wind: " + result.wind.speed + " m/s </h4>" + 
-                "<h4>UV Index: " + "</h4>";
+                // "<h4>UV Index: " + "</h4>";
                 
     }
 

@@ -33,7 +33,8 @@ const url = "https://api.openweathermap.org/data/2.5/forecast/?q=";
                 success: function(result) {
                     
                     var table = '';
-
+                    var header = '<h2>Weather for: ' + result.city.name + ', ' + result.city.country+' </h2>'
+                    // console.log(header); - working
                     // creating a loop to go through the .list of results
                     for (var i = 0; i < result.list.length; i++) {
                         table += "<tr>";
@@ -50,6 +51,7 @@ const url = "https://api.openweathermap.org/data/2.5/forecast/?q=";
                     }
 
                     $('#forecastWeather').html(table);
+                    $('#header').html(header);
                     $('#inputCity').val('');
                 } 
             })
