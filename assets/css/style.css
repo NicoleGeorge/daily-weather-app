@@ -29,6 +29,16 @@ body {
     margin-top: 20px;
 }
 
+a:hover {
+    color: #F9BD3E;
+    text-decoration: underline;
+}
+a {
+    color: #8EA424;
+    text-decoration: none;
+    background-color: transparent;
+}
+
 /* SEARCH FIELD */
 
 .input-city {
@@ -80,10 +90,10 @@ span {
 }
 
 .box {
-    border: 3px solid #8EA424;
+    border: 3px solid #F9BD3E;
     padding: 10px;
     margin: 10px -15px;
-    background-color:rgba(235, 178, 34, 0.769);
+    background-color: #FEE1E2;
     color:  #7c3f0a;
 }
 
