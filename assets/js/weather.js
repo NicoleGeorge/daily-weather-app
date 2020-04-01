@@ -66,10 +66,10 @@ const cityList = $('#searchList');
         // console.log(alert('clicked')); working!
     
     // Stage 7: adding event listener to remove city from the list
-        $('#searchList').on('click', removeCity); 
+    $('#searchList').on('click', removeCity); 
 
-    // 
-    // document.addEventListener('DOMContentLoaded', localStorageOnLoad);
+    // adding event listener to retrieve local storage city values
+    $('#searchButton').on('click', DOMContentLoaded, localStorageOnLoad);
 
     }
 
@@ -145,10 +145,11 @@ const cityList = $('#searchList');
         }
 
         // returns seached city value from local storage to page, on load
-        function localStorageOnLoad() {
+        function localStorageOnLoad(){
             let cityList = getCityFromLocalStorage();
-            
+
             console.log(cityList);
         }
+        
     
 });
