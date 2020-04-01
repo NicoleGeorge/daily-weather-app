@@ -98,7 +98,8 @@ const cityList = $('#searchList');
     cityList.append(li);
 
     // START - add searched cities to local storage
-    addCityLocalStorage();
+    
+    addCityLocalStorage(searchedCity);
 
 }
 
@@ -115,19 +116,30 @@ const cityList = $('#searchList');
         }
 
         function addCityLocalStorage(searchedCity) {
-            // console.log('Im stored!'); -working
+            // console.log('I am stored!'); -working
+            let cityList = getCityFromLocalStorage();
+            // console.log(cityList); - working
+
+            // add searched city to the array
+            cityList.push(searchedCity);
+            
+            // convert search city array into a string
+
+            localStorage.setItem('cityList', JSON.stringify(cityList));
+
         }
    
-        function getCityLocalStorage() {
-            let city;
-            const ciyLS = localStorage.getItem('city');
+        function getCityFromLocalStorage() {
+            let cityList;
+            const cityLS = localStorage.getItem('cityList');
             // retrieve values, if null is returned then create empty array
-            if (localStorage.getItem('city') === null) {
-                city = [];
+            if (cityLS === null) {
+                cityList = [];
             }
             else {
-                city = JSON.parse(ciyLS);
+                cityList = JSON.parse(cityLS);
             }
+            return cityList;
 
         }
     
