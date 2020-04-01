@@ -2,7 +2,7 @@
 $(document ).ready(function() {
 
 // URL REFERENCES;
-// API call format: api.openweathermap.org/data/2.5/weather?q={city name}&appid={your api key}
+// API call format: api.openweathermap.org/data/2.5/forecast?q={city name}&appid={your api key}
 // const uvURL = "https://http://api.openweathermap.org/data/2.5/uvi?appid={appid}&lat={lat}&lon={lon}";
 // API key: 4628463fa26bf6e9e88de6363b182cb3
 // URL to retrieve the icon images - http://openweathermap.org/img/wn/

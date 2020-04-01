@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Shrikhand&display=swap" rel="stylesheet">
+    <!-- style.css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="jumbotron header">
+      <h1>Current Weather dashboard: <br>it's the BOM diggity!</h1>
+      <h5><a href="index.html">Current forecast</a></h5>
+        <div class="data">
+          <h2 class="heading city" id="location"></h2>
+        </div>
+    </div>
+
+     <!-- weather conditions output fields -->
+     <div class="container">
+      <div class="row" id="searchCity">
+          <div class="col-md-4">
+              <h3>Next City to Visit</h3>
+
+              <!-- city search bar -->
+              <div class="form-inline my-2 my-lg-0">
+                <div class="tex-center" id="errorMessage"></div>
+                  <input class="form-control mr-sm-2 input-city" type="text" id="inputCity" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-primary my-2 my-sm-0" id="searchButton" type="submit">Search</button>
+              </div>
+                
+                <div class="card" style="width: 18rem;">
+                  <h5>My wanderlust list</h5>
+                    <div id="searchList"></div>
+                </div>
+          </div>
+                <!-- 5 day forecast output-->
+                <h2>5-Day forecast</h2>
+                <div class="row">
+                  <div class="col-md-8"> </div>   
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+  </div> 
+
+  <div class="footer">
+    <div class="container">
+        <p class="footer-text">Made by Nicole.G</p>
+    </div>
+  </div>
+
+<!-- these are the JavaScript links -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+<script src="./assets/js/forecast.js"></script>    
+</body>
+</html>
