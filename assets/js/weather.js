@@ -55,8 +55,7 @@ const url = "http://api.openweathermap.org/data/2.5/weather?q=";
                 
     }
 
-
-// START - local storage for searched cities
+// START - adding/removing cities to/from the list
 // Stage 4: list variables
 
 const cityList = $('#searchList');
@@ -65,6 +64,10 @@ const cityList = $('#searchList');
 
     $('#searchButton').on("click", storeCity); {
         // console.log(alert('clicked')); working!
+    
+    // Stage 7: adding event listener to remove city from the list
+        $('#searchList').on('click', removeCity); 
+
     }
 
     // Stage 2: function to store search for cities
@@ -88,11 +91,44 @@ const cityList = $('#searchList');
     
     // console.log(li); - working...woot woot
     
-
     // Stage 6: adding the removeCityBtn to the searchedCitiesList
     li.append(removeCityBtn);
 
     // add to the list
     cityList.append(li);
-    }
+
+    // START - add searched cities to local storage
+    addCityLocalStorage();
+
+}
+
+    // remove city from the DOM function
+
+        function removeCity(e) {
+            if (e.target.classList.contains('remove-city')) {
+                e.target.parentElement.remove();
+                // console.log('Y'); - firing correctly
+            }
+            // else {
+            //     // console.log('N'); - firing correctly
+            // }
+        }
+
+        function addCityLocalStorage(searchedCity) {
+            // console.log('Im stored!'); -working
+        }
+   
+        function getCityLocalStorage() {
+            let city;
+            const ciyLS = localStorage.getItem('city');
+            // retrieve values, if null is returned then create empty array
+            if (localStorage.getItem('city') === null) {
+                city = [];
+            }
+            else {
+                city = JSON.parse(ciyLS);
+            }
+
+        }
+    
 });

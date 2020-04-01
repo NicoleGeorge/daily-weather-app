@@ -69,7 +69,7 @@ a.remove-city {
 a.remove-city:hover {
     float: right;
     cursor: pointer;
-    color: crimson;
+    color: #8EA424;
     font-weight: 700;
 }
 
