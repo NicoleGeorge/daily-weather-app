@@ -28,7 +28,13 @@ current forecast;
 - these can also be removed.
 
 SCREENSHOTS:
+![Image description](https://github.com/NicoleGeorge/daily-weather-app/blob/master/assets/images/1.png)
 
+![Image description](https://github.com/NicoleGeorge/daily-weather-app/blob/master/assets/images/2.png)
+
+![Image description](https://github.com/NicoleGeorge/daily-weather-app/blob/master/assets/images/3.png)
+
+![Image description](https://github.com/NicoleGeorge/daily-weather-app/blob/master/assets/images/4.png)
 
 Resources used & attribution:
 - stack overflow
