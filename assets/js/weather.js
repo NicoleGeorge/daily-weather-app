@@ -1,155 +1,196 @@
-"use strict"
-$(document ).ready(function() {
+"use strict";
+$(document).ready(function () {
+  localStorageOnLoad();
 
-// URL REFERENCES;
-// API call format: api.openweathermap.org/data/2.5/weather?q={city name}&appid={your api key}
-// const uvURL = "https://http://api.openweathermap.org/data/2.5/uvi?appid={appid}&lat={lat}&lon={lon}";
-// API key: 4628463fa26bf6e9e88de6363b182cb3
-// URL to retrieve the icon images - http://openweathermap.org/img/wn/
+  // URL REFERENCES;
+  // API call format: api.openweathermap.org/data/2.5/weather?q={city name}&appid={your api key}
+  // const uvURL = "https://http://api.openweathermap.org/data/2.5/uvi?appid={appid}&lat={lat}&lon={lon}";
+  // API key: 4628463fa26bf6e9e88de6363b182cb3
+  // URL to retrieve the icon images - http://openweathermap.org/img/wn/
 
-const url = "https://api.openweathermap.org/data/2.5/weather?q=";
+  const url = "https://api.openweathermap.org/data/2.5/weather?q=";
 
-// START: adding a click event to search field
+  // START: adding a click event to search field
 
-    $('#searchButton').on("click", function() {
-        return getWeather();
-    })
+  $("#searchButton").on("click", function () {
+    return getWeather();
+  });
 
-    // creating a 'fetch weather data function' based on search city input
+  // creating a 'fetch weather data function' based on search city input
 
-    function getWeather(){
-        const city = $('#inputCity').val();
+  function getWeather() {
+    const city = $("#inputCity").val();
 
-// START: creating an ajax call & outputting displayData function - see below 
+    // START: creating an ajax call & outputting displayData function - see below
 
-        if (city != ''){
+    if (city != "") {
+      $.ajax({
+        url:
+          url +
+          city +
+          "&units=metric" +
+          "&APPID=4628463fa26bf6e9e88de6363b182cb3",
+        type: "GET",
+        dataType: "jsonp",
+        success: function (result) {
+          let widget = displayData(result);
+          $("#displayWeather").html(widget);
+          $("#inputCity").val("");
+        },
+      });
 
-            $.ajax ({
-                url: url + city + "&units=metric" + "&APPID=4628463fa26bf6e9e88de6363b182cb3",
-                type: "GET",
-                dataType: "jsonp",
-                success: function(result) {
-                    let widget = displayData(result)
-                    $("#displayWeather").html(widget);
-                    $("#inputCity").val('');
-                } 
-            })
-
-        // validation - city must be entered 
-        } else {
-            // adding bootstrap classes to the error message - alert & close X button
-            $('#errorMessage').html("<div class='alert alert-danger' id='inputError'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Please enter a city name to continue.</div>");
-        }
+      // validation - city must be entered
+    } else {
+      // adding bootstrap classes to the error message - alert & close X button
+      $("#errorMessage").html(
+        "<div class='alert alert-danger' id='inputError'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>Please enter a city name to continue.</div>"
+      );
     }
+  }
 
-// START: creating displayData function to output pulled results from OpenWeather API
+  // START: creating displayData function to output pulled results from OpenWeather API
 
-    function displayData(result) { 
-        // returning data values + country name & country code output
-        return  '<h3>Weather for: ' + result.name + ', ' + result.sys.country+' </h3>' +
-                "<h4>Current conditions: <img src='http://openweathermap.org/img/wn/" + result.weather[0].icon + ".png'>  "+ result.weather[0].description + "</h4>" +
-                "<h4>Temperature: " + result.main.temp + "&deg;C </h4>" +
-                "<h4>Humidity: " + result.main.humidity + "% </h4>" +
-                "<h4>Wind: " + result.wind.speed + " m/s </h4>" ;
-                // "<h4>UV Index: " + "</h4>";
-               
-}
+  function displayData(result) {
+    // returning data values + country name & country code output
+    return (
+      "<h3>Weather for: " +
+      result.name +
+      ", " +
+      result.sys.country +
+      " </h3>" +
+      "<h4>Current conditions: <img src='http://openweathermap.org/img/wn/" +
+      result.weather[0].icon +
+      ".png'>  " +
+      result.weather[0].description +
+      "</h4>" +
+      "<h4>Temperature: " +
+      result.main.temp +
+      "&deg;C </h4>" +
+      "<h4>Humidity: " +
+      result.main.humidity +
+      "% </h4>" +
+      "<h4>Wind: " +
+      result.wind.speed +
+      " m/s </h4>"
+    );
+    // "<h4>UV Index: " + "</h4>";
+  }
 
-// START - adding/removing cities to/from the list
-// Stage 4: list variables
+  // START - adding/removing cities to/from the list
+  // Stage 4: list variables
 
-const cityList = $('#searchList');
+  const cityList = $("#searchList");
 
-    // Stage 1: adding an event listener 
+  // Stage 1: adding an event listener
 
-    $('#searchButton').on("click", storeCity); {
-        // console.log(alert('clicked')); working!
-    
+  $("#searchButton").on("click", storeCity);
+  {
+    // console.log(alert('clicked')); working!
+
     // Stage 7: adding event listener to remove city from the list
-    $('#searchList').on('click', removeCity); 
+    $("#searchList").on("click", removeCity);
 
     // adding event listener to retrieve local storage city values
-    $('#searchButton').on('click', DOMContentLoaded, localStorageOnLoad);
+  }
 
-    }
+  // Stage 2: function to store search for cities
 
-    // Stage 2: function to store search for cities
+  function storeCity(e) {
+    e.preventDefault();
+    // console.log('city entered!') - working!!
 
-    function storeCity(e){
-        e.preventDefault();
-        // console.log('city entered!') - working!!
+    // //  getting search for city value
+    const searchedCity = $("#inputCity").val();
+    //     // console.log(searchedCity); - working!! *time for a dance break*
 
-    //  getting search for city value
-        const searchedCity = $('#inputCity').val();
-        // console.log(searchedCity); - working!! *time for a dance break*
+    // // Stage 5: creating a remove searched city button
+    //     const removeCityBtn = document.createElement('a');
+    //     removeCityBtn.classList = 'remove-city';
+    //     removeCityBtn.textContent = 'X';
 
-    // Stage 5: creating a remove searched city button
-        const removeCityBtn = document.createElement('a');
-        removeCityBtn.classList = 'remove-city';
-        removeCityBtn.textContent = 'X';
+    // // Stage 3: creating li elements to drop the search for cities into
+    // const li = document.createElement('li');
+    // li.textContent = searchedCity;
 
-    // Stage 3: creating li elements to drop the search for cities into
-    const li = document.createElement('li');
-    li.textContent = searchedCity;
-    
-    // console.log(li); - working...woot woot
-    
-    // Stage 6: adding the removeCityBtn to the searchedCitiesList
-    li.append(removeCityBtn);
+    // // console.log(li); - working...woot woot
 
-    // add to the list
-    cityList.append(li);
+    // // Stage 6: adding the removeCityBtn to the searchedCitiesList
+    // li.append(removeCityBtn);
+
+    // // add to the list
+    // cityList.append(li);
 
     // START - add searched cities to local storage
-    
+
     addCityLocalStorage(searchedCity);
+    $("#searchList").empty();
 
-}
+    localStorageOnLoad();
+  }
 
-    // remove city from the DOM function
+  // remove city from the DOM function
 
-        function removeCity(e) {
-            if (e.target.classList.contains('remove-city')) {
-                e.target.parentElement.remove();
-                // console.log('Y'); - firing correctly
-            }
-            // else {
-            //     // console.log('N'); - firing correctly
-            // }
-        }
+  function removeCity(e) {
+    if (e.target.classList.contains("remove-city")) {
+      e.target.parentElement.remove();
+      // console.log('Y'); - firing correctly
+    }
+    // else {
+    //     // console.log('N'); - firing correctly
+    // }
+  }
 
-        function addCityLocalStorage(searchedCity) {
-            // console.log('I am stored!'); -working
-            let cityList = getCityFromLocalStorage();
-            // console.log(cityList); - working
+  function addCityLocalStorage(searchedCity) {
+    let cityList = getCityFromLocalStorage();
+    console.log("running at city");
 
-            // add searched city to the array
-            cityList.push(searchedCity);
-            
-            // convert search city array into a string
-            localStorage.setItem('cityList', JSON.stringify(cityList));
+    if (cityList.length > 2) {
+      cityList.shift();
+      console.log(cityList);
+    }
 
-        }
-   
-        function getCityFromLocalStorage() {
-            let cityList;
-            const cityLS = localStorage.getItem('cityList');
-            // retrieve values, if null is returned then create empty array
-            if (cityLS === null) {
-                cityList = [];
-            }
-            else {
-                cityList = JSON.parse(cityLS);
-            }
-            return cityList;
-        }
+    // add searched city to the array
+    cityList.push(searchedCity);
 
-        // returns seached city value from local storage to page, on load
-        function localStorageOnLoad(){
-            let cityList = getCityFromLocalStorage();
+    // convert search city array into a string
+    localStorage.setItem("cityList", JSON.stringify(cityList));
+  }
 
-            console.log(cityList);
-        }
-        
-    
+  function getCityFromLocalStorage() {
+    let cityList;
+    const cityLS = localStorage.getItem("cityList");
+    // retrieve values, if null is returned then create empty array
+    if (cityLS === null) {
+      cityList = [];
+    } else {
+      cityList = JSON.parse(cityLS);
+    }
+    return cityList;
+  }
+
+  // returns seached city value from local storage to page, on load
+  function localStorageOnLoad() {
+    let cityList = getCityFromLocalStorage();
+    console.log(cityList);
+
+    for (let i = 0; i < cityList.length; i++) {
+      const city = cityList[i];
+      console.log(city);
+
+      //$('#searchList').html(city);
+
+      const removeCityBtn = document.createElement("a");
+      removeCityBtn.classList = "remove-city";
+      removeCityBtn.textContent = "X";
+
+      const li = document.createElement("li");
+      li.textContent = city;
+
+      // Stage 6: adding the removeCityBtn to the searchedCitiesList
+      li.append(removeCityBtn);
+
+      // add to the list
+      $("#searchList").append(li);
+    }
+  }
 });
