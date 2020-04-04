@@ -1,84 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
     <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Shrikhand&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Inconsolata|Shrikhand&display=swap"
+      rel="stylesheet"
+    />
     <!-- style.css -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>Weather App</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="jumbotron header">
-      <h1>5-Day Weather Forecast: <br>it's the BOM!</h1>
+      <h1>5-Day Weather Forecast: <br />it's the BOM!</h1>
       <h5>Check out the <a href="index.html">Current forecast</a></h5>
-        <div class="data">
-          <h2 class="heading city" id="location"></h2>
-        </div>
+      <div class="data">
+        <h2 class="heading city" id="location"></h2>
+      </div>
     </div>
 
-     <!-- weather conditions output fields -->
-     <div class="container">
+    <!-- weather conditions output fields -->
+    <div class="container">
       <div class="row" id="searchCity">
-          <div class="col-md-4">
-              <h3>City to Visit</h3>
+        <div class="col-md-4">
+          <h3>City to Visit</h3>
+          <!-- city search bar -->
+          <div class="form-inline my-2 my-lg-0">
+            <div class="tex-center" id="errorMessage"></div>
+            <input
+              class="form-control mr-sm-2 input-city"
+              type="text"
+              id="inputCity"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button
+              class="btn btn-primary my-2 my-sm-0"
+              id="searchForecast"
+              type="submit"
+            >
+              Search
+            </button>
+          </div>
 
-              <!-- city search bar -->
-              <div class="form-inline my-2 my-lg-0">
-                <div class="tex-center" id="errorMessage"></div>
-                  <input class="form-control mr-sm-2 input-city" type="text" id="inputCity" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-primary my-2 my-sm-0" id="searchForecast" type="submit">Search</button>
-              </div>
-                
-                <div class="card" style="width: 18rem;">
-                  <h5>My wanderlust</h5>
-                    <div id="searchList"></div>
-                </div>
+          <div class="card" style="width: 18rem;">
+            <h5>My wanderlust</h5>
+            <div id="searchList"></div>
           </div>
         </div>
-                <!-- 5 day forecast output-->
-                
-                <div class="container">
-                    <div class="row">
-                        <h2></h2>
-                    <table class="table table-bordered">
-                      <div id="header" class="text-center">
-                        <thead>
-                            <tr>
-                                <th>Weather-moji</th>
-                                <th>Sky Conditions</th>
-                                <th>Temp Min.</th>
-                                <th>Temp Max.</th>
-                                <th>Humidity</th>
-                                <th>Wind</th>
-                                <!-- <th>UV Index</th> -->
-                            </tr>
-                        </thead>
-                      </div>
-                        <tbody id="forecastWeather">
-                            
-                        </tbody>
-                    </table>
-                </div>
+      </div>
+
+      <!-- 5 day forecast output-->
+
+      <div class="container">
+        <div class="row">
+          <h2></h2>
+          <table class="table table-bordered">
+            <div id="header" class="text-center">
+              <thead>
+                <tr>
+                  <th>Weather-moji</th>
+                  <th>Sky Conditions</th>
+                  <th>Temp Min.</th>
+                  <th>Temp Max.</th>
+                  <th>Humidity</th>
+                  <th>Wind</th>
+                  <!--  <th>UV Index</th> -->
+                </tr>
+              </thead>
             </div>
-              </div>
-         
+            <tbody id="forecastWeather"></tbody>
+          </table>
         </div>
+      </div>
+    </div>
+
+    </div>
       </div>
   </div> 
 
-  <div class="footer">
-    <div class="container">
+    <div class="footer">
+      <div class="container">
         <p class="footer-text">Made by Nicole.G</p>
+      </div>
     </div>
-  </div>
 
-<!-- these are the JavaScript links -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
-<script src="./assets/js/forecast.js"></script>    
-</body>
+    <!-- these are the JavaScript links -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/js/forecast.js"></script>
+  </body>
 </html>

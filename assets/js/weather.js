@@ -90,7 +90,6 @@ $(document).ready(function () {
     // Stage 7: adding event listener to remove city from the list
     $("#searchList").on("click", removeCity);
 
-    // adding event listener to retrieve local storage city values
   }
 
   // Stage 2: function to store search for cities
@@ -101,24 +100,6 @@ $(document).ready(function () {
 
     // //  getting search for city value
     const searchedCity = $("#inputCity").val();
-    //     // console.log(searchedCity); - working!! *time for a dance break*
-
-    // // Stage 5: creating a remove searched city button
-    //     const removeCityBtn = document.createElement('a');
-    //     removeCityBtn.classList = 'remove-city';
-    //     removeCityBtn.textContent = 'X';
-
-    // // Stage 3: creating li elements to drop the search for cities into
-    // const li = document.createElement('li');
-    // li.textContent = searchedCity;
-
-    // // console.log(li); - working...woot woot
-
-    // // Stage 6: adding the removeCityBtn to the searchedCitiesList
-    // li.append(removeCityBtn);
-
-    // // add to the list
-    // cityList.append(li);
 
     // START - add searched cities to local storage
 
@@ -133,11 +114,8 @@ $(document).ready(function () {
   function removeCity(e) {
     if (e.target.classList.contains("remove-city")) {
       e.target.parentElement.remove();
-      // console.log('Y'); - firing correctly
     }
-    // else {
-    //     // console.log('N'); - firing correctly
-    // }
+
   }
 
   function addCityLocalStorage(searchedCity) {
@@ -176,8 +154,6 @@ $(document).ready(function () {
     for (let i = 0; i < cityList.length; i++) {
       const city = cityList[i];
       console.log(city);
-
-      //$('#searchList').html(city);
 
       const removeCityBtn = document.createElement("a");
       removeCityBtn.classList = "remove-city";

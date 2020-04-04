@@ -76,19 +76,6 @@ $(document).ready(function () {
     }
   }
 
-  // START: creating displayData function to output pulled results from OpenWeather API
-
-  // function displayData(result) {
-  //     // returning data values + country name & country code output
-  //     return  '<h3>Weather for: ' + result.name + ', ' + result.sys.country+' </h3>' +
-  //             "<h4>Current conditions: <img src='http://openweathermap.org/img/wn/" + result.weather[0].icon + ".png'>  "+ result.weather[0].description + "</h4>" +
-  //             "<h4>Temperature: " + result.main.temp + "&deg;C </h4>" +
-  //             "<h4>Humidity: " + result.main.humidity + "% </h4>" +
-  //             "<h4>Wind: " + result.wind.speed + " m/s </h4>" +
-  //             "<h4>UV Index: " + "</h4>";
-
-  // }
-
   // START - adding/removing cities to/from the searched cities list
   // Stage 4: list variables
 
@@ -102,9 +89,6 @@ $(document).ready(function () {
 
     // Stage 7: adding event listener to remove city from the list
     $("#searchList").on("click", removeCity);
-
-    //
-    // document.addEventListener('DOMContentLoaded', localStorageOnLoad);
   }
 
   // Stage 2: function to store search for cities
@@ -115,24 +99,6 @@ $(document).ready(function () {
 
     // //  getting search for city value
     const searchedCity = $("#inputCity").val();
-    //     // console.log(searchedCity); - working!! *time for a dance break*
-
-    // // Stage 5: creating a remove searched city button
-    //     const removeCityBtn = document.createElement('a');
-    //     removeCityBtn.classList = 'remove-city';
-    //     removeCityBtn.textContent = 'X';
-
-    // // Stage 3: creating li elements to drop the search for cities into
-    // const li = document.createElement('li');
-    // li.textContent = searchedCity;
-
-    // // console.log(li); - working...woot woot
-
-    // // Stage 6: adding the removeCityBtn to the searchedCitiesList
-    // li.append(removeCityBtn);
-
-    // // add to the list
-    // cityList.append(li);
 
     // START - add searched cities to local storage
 
@@ -147,11 +113,7 @@ $(document).ready(function () {
   function removeCity(e) {
     if (e.target.classList.contains("remove-city")) {
       e.target.parentElement.remove();
-      // console.log('Y'); - firing correctly
     }
-    // else {
-    //     // console.log('N'); - firing correctly
-    // }
   }
 
   function addCityLocalStorage(searchedCity) {
